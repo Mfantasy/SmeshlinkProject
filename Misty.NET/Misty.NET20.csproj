@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>mistynet.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{798E4F90-15F9-4C5F-A970-AF1C8F91A1A8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SmeshLink.Misty</RootNamespace>
+    <AssemblyName>Misty.NET</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\NET20\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET20</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\NET20\</OutputPath>
+    <DefineConstants>TRACE;NET20</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\NET20\Misty.NET.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net20\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entity\Entry.cs" />
+    <Compile Include="Entity\Feed.cs" />
+    <Compile Include="Entity\FeedStatus.cs" />
+    <Compile Include="Entity\Location.cs" />
+    <Compile Include="Entity\Unit.cs" />
+    <Compile Include="Entity\User.cs" />
+    <Compile Include="Entity\Waypoint.cs" />
+    <Compile Include="Formatter\IFeedFormatter.cs" />
+    <Compile Include="Formatter\JsonFormatter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\ApiKeyCredential.cs" />
+    <Compile Include="Service\Channel\HttpChannel.cs" />
+    <Compile Include="Service\Channel\IServiceChannel.cs" />
+    <Compile Include="Service\Channel\TcpChannel.cs" />
+    <Compile Include="Service\ICredential.cs" />
+    <Compile Include="Service\IServiceRequest.cs" />
+    <Compile Include="Service\IServiceResponse.cs" />
+    <Compile Include="Service\IUserService.cs" />
+    <Compile Include="Service\JsonRequest.cs" />
+    <Compile Include="Service\JsonResponse.cs" />
+    <Compile Include="Service\MistyService.cs" />
+    <Compile Include="Service\IFeedService.cs" />
+    <Compile Include="Service\QueryOption.cs" />
+    <Compile Include="Service\ServiceException.cs" />
+    <Compile Include="Service\ServiceRequestImpl.cs" />
+    <Compile Include="Service\UserCredential.cs" />
+    <Compile Include="Util\BlockingQueue.cs" />
+    <Compile Include="Util\Buffer\AbstractIoBuffer.cs" />
+    <Compile Include="Util\Buffer\Buffer.cs" />
+    <Compile Include="Util\Buffer\BufferDataException.cs" />
+    <Compile Include="Util\Buffer\BufferUnderflowException.cs" />
+    <Compile Include="Util\Buffer\ByteBuffer.cs" />
+    <Compile Include="Util\Buffer\ByteBufferAllocator.cs" />
+    <Compile Include="Util\Buffer\ByteBufferR.cs" />
+    <Compile Include="Util\Buffer\IoBufferAllocator.cs" />
+    <Compile Include="Util\Buffer\IoBufferHexDumper.cs" />
+    <Compile Include="Util\Buffer\IoBufferStream.cs" />
+    <Compile Include="Util\DateTimeUtils.cs" />
+    <Compile Include="Util\Buffer\IoBuffer.cs" />
+    <Compile Include="Util\JsonUtils.cs" />
+    <Compile Include="Util\PagedList.cs" />
+    <Compile Include="Util\System.Collections.Concurrent\ConcurrentDictionary.cs" />
+    <Compile Include="Util\System.Collections.Concurrent\SplitOrderedList.cs" />
+    <Compile Include="Util\System\Funcs.cs" />
+    <Compile Include="Util\WaitFuture.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="mistynet.snk" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
